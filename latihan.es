@@ -1,10 +1,10 @@
-GET _cat/indices
+GET _search
 
 {
     "query": {
         "query_string": {
-            "query": "larry",
-            "fields": ["Name"]
+            "query": "Andi",
+            "fields": ["nama"]
         }
     },
     "size": 10,

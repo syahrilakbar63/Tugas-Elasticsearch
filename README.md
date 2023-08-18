@@ -8,7 +8,7 @@ How you set vm.max_map_count depends on your platform.
 
 To view the current value for the vm.max_map_count setting, run:
 
-`grep vm.max_map_count /etc/sysctl.conf`
+ `grep vm.max_map_count /etc/sysctl.confV`
 
 To apply the setting on a live system, run:
 
