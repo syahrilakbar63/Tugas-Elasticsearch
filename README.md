@@ -8,26 +8,32 @@ Untuk melihat nilai saat ini dari pengaturan vm.max_map_count, jalankan perintah
 
 `grep vm.max_map_count /etc/sysctl.conf`
 
+
 Untuk menerapkan pengaturan tersebut pada sistem yang sedang berjalan, gunakan perintah:
 
 `sysctl -w vm.max_map_count=262144`
+
 
 Jika  ingin mengubah nilai vm.max_map_count secara permanen, ikuti langkah-langkah berikut:
 Buka file konfigurasi sysctl.conf menggunakan editor teks seperti nano atau vi dengan hak akses root atau menggunakan sudo:
 
 `sudo nano /etc/sysctl.conf`
 
+
 Di dalam file sysctl.conf, tambahkan baris berikut:
 
 `vm.max_map_count=524288`
+
 
 Simpan perubahan dan keluar dari editor teks. Atau, dapat menggunakan perintah berikut:
 
 `echo "vm.max_map_count=524288" | sudo tee -a /etc/sysctl.conf`
 
+
 Terapkan perubahan yang baru saja dibuat dengan menjalankan:	
 
 `sudo sysctl –p`
+
 
 Untuk memeriksa pengaturan yang telah diubah, gunakan perintah:
 
@@ -42,27 +48,33 @@ Buka terminal dan navigasi ke folder .devcontainer.
 
 `docker-compose up –d`
 
+
 ## 2. Install Logstash
 Langkah selanjutnya adalah menginstal Logstash dan mengonfigurasi beberapa hal. Ikuti langkah-langkah di bawah ini:
 Unduh dan pasang Kunci Tanda Tangan Publik:
 
 `wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elastic-keyring.gpg`
 
+
 Jika menggunakan Debian, mungkin perlu menginstal paket apt-transport-https sebelum melanjutkan:
 
 `sudo apt-get install apt-transport-https`
+
 
 Simpan definisi repositori ke /etc/apt/sources.list.d/elastic-8.x.list:
 
 `echo "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list`
 
+
 Jalankan perintah berikut untuk memperbarui informasi repositori:
 
 `sudo apt-get update`
 
+
 Instal Logstash dengan perintah:
 
 `sudo apt-get install logstash`
+
 
 Instal Plugin dengan perintah:
 
@@ -73,15 +85,18 @@ Salin file konfigurasi:
 
 `sudo cp logstash-people.conf /etc/logstash/conf.d/logstash.conf`
 
+
 Buat folder untuk Logstash:
 
 `mkdir logstash/logstash-people`
+
 
 Buat Index baru (misalnya, "people") dengan perintah:
 
 `curl --location --request PUT 'http://localhost:9200/people' --header 'Content-Type: application/json' --data '{
     "settings": { "number_of_shards": 5, "number_of_replicas": 1 }
 }'`
+
 
 Jalankan Logstash dengan perintah:
 
