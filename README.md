@@ -128,7 +128,7 @@ Buat Index baru (misalnya, "people") dengan perintah:
 ```bash
 curl --location --request PUT 'http://localhost:9200/people' --header 'Content-Type: application/json' --data '{
     "settings": { "number_of_shards": 5, "number_of_replicas": 1 }
-}'
+}
 ```
 
 
