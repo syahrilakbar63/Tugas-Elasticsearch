@@ -7,7 +7,7 @@ Pastikan pengaturan kernel vm.max_map_count diatur setidaknya menjadi 262144 unt
 Untuk melihat nilai saat ini dari pengaturan vm.max_map_count, jalankan perintah berikut:
 
 ```bash
-grep vm.max_map_count /etc/sysctl.conf`
+grep vm.max_map_count /etc/sysctl.conf
 ```
 
 
