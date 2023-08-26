@@ -61,7 +61,7 @@ Langkah pertama adalah menginstal Elasticsearch. Lakukan langkah-langkah berikut
 Buka terminal dan navigasi ke folder .devcontainer.
 
 ```bash
-docker-compose up –d
+docker-compose up
 ```
 
 
