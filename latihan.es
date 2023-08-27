@@ -4,7 +4,7 @@ GET _search
     "query": {
         "query_string": {
             "query": "Andi",
-            "fields": ["nama"]
+            "fields": ["Nama"]
         }
     },
     "size": 10,

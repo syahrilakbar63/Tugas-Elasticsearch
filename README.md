@@ -14,7 +14,7 @@ grep vm.max_map_count /etc/sysctl.conf
 Untuk menerapkan pengaturan tersebut pada sistem yang sedang berjalan, gunakan perintah:
 
 ```bash
-sysctl -w vm.max_map_count=262144
+sudo sysctl -w vm.max_map_count=262144
 ```
 
 
