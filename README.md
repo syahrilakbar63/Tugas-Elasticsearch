@@ -43,7 +43,7 @@ echo "vm.max_map_count=524288" | sudo tee -a /etc/sysctl.conf
 Terapkan perubahan yang baru saja dibuat dengan menjalankan:	
 
 ```bash
-sudo sysctl –p
+sudo sysctl -p
 ```
 
 
